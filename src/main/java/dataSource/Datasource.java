@@ -1,18 +1,20 @@
-import Config.ModuleConfig;
-import Config.StartingModuleConfig;
-import Config.StopModuleConfig;
+package dataSource;
+
+import config.BaseModuleConfig;
+import config.StartingBaseModuleConfig;
+import config.StopBaseModuleConfig;
 import vo.SccQrqcStartingVO;
 import vo.SccQrqcStopVO;
 
 import java.util.*;
 
 public class Datasource {
-    public static ModuleConfig getStartingModuleConfig(){
-        return StartingModuleConfig.getInstance();
+    public static BaseModuleConfig getStartingModuleConfig(){
+        return StartingBaseModuleConfig.getInstance();
     }
 
-    public static ModuleConfig getStopModuleConfig(){
-        return StopModuleConfig.getInstance();
+    public static BaseModuleConfig getStopModuleConfig(){
+        return StopBaseModuleConfig.getInstance();
     }
 
     public static List<SccQrqcStartingVO> getStartingDataList(){
@@ -38,10 +40,10 @@ public class Datasource {
         SccQrqcStopVO vo = new SccQrqcStopVO();
         vo.setWorkcell("0");
         vo.setStop("0");
-        vo.setProducer("雷文凉");
-        vo.setOutuser("雷文凉");
+        vo.setProducer("小红");
+        vo.setOutuser("小明");
         vo.setCreationDate(new Date());
-        vo.setOperator("雷文凉");
+        vo.setOperator("小赵");
 
         vos.add(vo);
         return vos;
@@ -55,8 +57,8 @@ public class Datasource {
     }
 
 
-    public static Map<String, ModuleConfig> getModuleConfigMap(){
-        Map<String,ModuleConfig> map = new LinkedHashMap<String, ModuleConfig>();
+    public static Map<String, BaseModuleConfig> getModuleConfigMap(){
+        Map<String, BaseModuleConfig> map = new LinkedHashMap<String, BaseModuleConfig>();
         map.put("starting",getStartingModuleConfig());
         map.put("stop",getStopModuleConfig());
         return map;

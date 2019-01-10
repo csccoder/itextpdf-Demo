@@ -1,4 +1,4 @@
-package Config;
+package config;
 
 import converter.Converter;
 import vo.SccQrqcStopVO;
@@ -7,9 +7,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StopModuleConfig extends ModuleConfig{
-    private static final ModuleConfig moduleConfig = new StopModuleConfig();
-    private StopModuleConfig(){
+public class StopBaseModuleConfig extends BaseModuleConfig {
+    private static final BaseModuleConfig BASE_MODULE_CONFIG = new StopBaseModuleConfig();
+    private StopBaseModuleConfig(){
         super("停/复线记录", SccQrqcStopVO.class);
         List<FieldConfig> fieldConfigList = new ArrayList<FieldConfig>();
         fieldConfigList.add(new FieldConfig("升级为work cell QRQC","workcell"));
@@ -25,12 +25,12 @@ public class StopModuleConfig extends ModuleConfig{
             }
         }));
 
-        setFieldConfigList(fieldConfigList);
+        setFieldConfigList(new List[]{fieldConfigList});
 
-        setFieldWidths(new float[]{5,20,10,10,10,10,10});
+        setFieldWidths(new float[]{6.4f,20,10,10,10,10,10});
     }
 
-    public static ModuleConfig getInstance(){
-        return moduleConfig;
+    public static BaseModuleConfig getInstance(){
+        return BASE_MODULE_CONFIG;
     }
 }
